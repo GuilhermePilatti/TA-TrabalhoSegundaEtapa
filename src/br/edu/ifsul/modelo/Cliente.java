@@ -42,7 +42,7 @@ public abstract class Cliente implements Serializable{
     @Column(name = "endereco", length = 50, nullable = false)
     private String endereco;
     
-    @NotBlank(message = "A cidade deve ser informado")
+    @NotBlank(message = "A cidade deve ser informada")
     @Length(max = 50, message = "A cidade não deve possui mais de {max} caracteres")
     @Column(name = "cidade", length = 50, nullable = false)
     private String cidade;
