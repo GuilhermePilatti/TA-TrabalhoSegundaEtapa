@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -43,12 +45,12 @@ public class MateriaPrima implements Serializable{
     private String fabricante;
     
     @NotNull(message = "O peso da saca deve ser informada")
-    @Column(name = "pesoSaca", columnDefinition = "int")
+    @Column(name = "pesoSaca", columnDefinition = "integer")
     private Integer pesoSaca;
     
     @NotNull(message = "O fornecedor deve ser informado")
     @ManyToOne
-    @JoinColumn(name = "fornecedor", referencedColumnName = "id")
+    @JoinColumn(name = "fornecedor", referencedColumnName = "codigo")
     private Fornecedor forcenedor;
 
     public MateriaPrima() {
