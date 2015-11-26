@@ -6,6 +6,7 @@
 package br.edu.ifsul.modelo;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -19,6 +20,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -61,6 +63,26 @@ public class Venda implements Serializable{
     private Pedido pedido;
 
     public Venda() {
+    }
+    
+     @Transient
+    public String getDataVendaFormatada(){
+        if(dataVenda != null){
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            return sdf.format(dataVenda.getTime());
+        } else{
+            return "";
+        }
+    }
+    
+    @Transient
+    public String getDataEntregaFormatada(){
+        if(dataEntrega != null){
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            return sdf.format(dataEntrega.getTime());
+        } else{
+            return "";
+        }
     }
 
     public Integer getCodigo() {

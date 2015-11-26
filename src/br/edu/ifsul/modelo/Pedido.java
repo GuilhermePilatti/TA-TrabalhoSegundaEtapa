@@ -69,6 +69,12 @@ public class Pedido implements Serializable{
     }
     
     @Transient
+    public String getPedidoVendas(){
+        return "Pedido: " +codigo.toString()+ " Cliente: " +cliente.getNome()+ 
+                " Data: " +getDataPedidoFormatada()+ " Valor: " +valorTotal.toString();
+    }
+    
+    @Transient
     public String getDataPedidoFormatada(){
         if(dataPedido != null){
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
