@@ -6,6 +6,7 @@
 package br.edu.ifsul.modelo;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -24,6 +25,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -64,6 +66,16 @@ public class Pedido implements Serializable{
     private List<ItensPedido> itens = new ArrayList<>();
 
     public Pedido() {
+    }
+    
+    @Transient
+    public String getDataPedidoFormatada(){
+        if(dataPedido != null){
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            return sdf.format(dataPedido.getTime());
+        } else{
+            return "";
+        }
     }
     
     public void adicionarItem(ItensPedido obj){

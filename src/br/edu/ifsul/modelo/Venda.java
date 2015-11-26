@@ -39,7 +39,7 @@ public class Venda implements Serializable{
     
     @NotNull(message = "A quantidade de sacas deve ser informada")
     @Column(name = "quantidadesacas", columnDefinition = "INTEGER")
-    private Double quantidadeSacas;
+    private Integer quantidadeSacas;
     
     @NotNull(message = "O peso total deve ser informado")
     @Column(name = "pesototal", columnDefinition = "DECIMAL(10,3) DEFAULT 0.0")
@@ -79,11 +79,11 @@ public class Venda implements Serializable{
         this.valorTotal = valorTotal;
     }
 
-    public Double getQuantidadeSacas() {
+    public Integer getQuantidadeSacas() {
         return quantidadeSacas;
     }
 
-    public void setQuantidadeSacas(Double quantidadeSacas) {
+    public void setQuantidadeSacas(Integer quantidadeSacas) {
         this.quantidadeSacas = quantidadeSacas;
     }
 
